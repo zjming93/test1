@@ -22,7 +22,6 @@ public class DemoApplication {
        }
        
        public static void main5(String[] args) {
-           String c = "s";
-           int a = 12;
+
        }
 }
