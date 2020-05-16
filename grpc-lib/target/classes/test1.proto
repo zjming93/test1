@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "common.proto";
+option java_multiple_files = false;
+option java_package = "com.qycloud.SDK.enter";
+
+service DataCenterData {
+    rpc getDataCenterDataWithAccessCheck (DataCenterDataQueryRequest) returns (DataCenterDataResponse) {
+    }
+    rpc countDataCenterDataWithAccessCheck (DataCenterDataCountRequest) returns (DataCenterDataResponse) {
+    }
+    rpc cleanCache (DataCenterDataCleanRequest) returns (DataCenterDataResponse) {
+    }
+}
+
+message DataCenterDataQueryRequest {
+    string entId = 1;
+    string userId = 2;
+    string token = 3;
+    string tableId = 4;
+    map<string, string> params = 5;
+    PageCondition pageCondition = 6;
+    SortCondition sortCondition = 7;
+    repeated string searchFields = 8;
+    repeated CommonCondition conditions = 9;
+}
+
+message DataCenterDataCountRequest {
+    string entId = 1;
+    string userId = 2;
+    string token = 3;
+    string tableId = 4;
+    map<string, string> params = 5;
+    repeated CommonCondition conditions = 6;
+}
+
+message DataCenterDataCleanRequest {
+    string entId = 1;
+    string userId = 2;
+    string token = 3;
+    string tableId = 4;
+    string sessionId = 5;
+    map<string, string> params = 6;
+}
+
+message DataCenterDataResponse {
+    map<string, string> responseData = 1;
+}

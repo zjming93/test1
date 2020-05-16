@@ -1,0 +1,8 @@
+grpc:
+   server:
+     port: 2804
+
+spring:
+     application:
+           name: preview-grpc-server
+

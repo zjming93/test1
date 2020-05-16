@@ -1,0 +1,50 @@
+syntax = "proto3";
+import "common.proto";
+import "google/protobuf/wrappers.proto";
+
+option java_package = "com.qycloud.SDK.enter";
+option java_multiple_files = false;
+
+service Datapool {
+    rpc count (DatapoolCountRequest) returns (google.protobuf.Int64Value) {
+    };
+    rpc query (DatapoolQueryRequest) returns (DatapoolResponse) {
+    };
+    rpc queryFields (DatapoolQueryFieldsRequest) returns (DatapoolResponse) {
+    };
+}
+
+message DatapoolCountRequest {
+    string entId = 1;
+    string userId = 2;
+    string token = 3;
+    string tableId = 4;
+    map<string, string> params = 5;
+    repeated CommonCondition conditions = 6;
+}
+
+message DatapoolQueryRequest {
+    string entId = 1;
+    string userId = 2;
+    string token = 3;
+    string tableId = 4;
+    map<string, string> params = 5;
+    PageQueryValue pageQueryValue = 6;
+    repeated CommonCondition conditions = 7;
+}
+
+message DatapoolQueryFieldsRequest {
+    string entId = 1;
+    string userId = 2;
+    string token = 3;
+    string tableId = 4;
+    bool distinct = 5;
+    map<string, string> params = 6;
+    PageQueryValue pageQueryValue = 7;
+    repeated string fieldList = 8;
+    repeated CommonCondition conditions = 9;
+}
+
+message DatapoolResponse {
+    map<string, string> responseData = 1;
+}
