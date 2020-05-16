@@ -14,4 +14,7 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
+	   public static void main3(String[] args) {
+	        SpringApplication.run(DemoApplication.class, args);
+	    }
 }
